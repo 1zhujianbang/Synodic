@@ -23,12 +23,10 @@
 
 ## 🏗️ 系统架构
 
-```
 应用层：![Synodic](https://github.com/1zhujianbang/Synodic)
 推送层：![MarketAutoguider](https://github.com/1zhujianbang/MarketAutoguider)
 分析层：![MarketSpectrograph](https://github.com/1zhujianbang/MarketSpectrograph)
 预处理层：![MarketLens](https://github.com/1zhujianbang/MarketLens) / ![MarketCollimator](https://github.com/1zhujianbang/MarketCollimator)
-```
 
 ## 📊 核心功能
 
