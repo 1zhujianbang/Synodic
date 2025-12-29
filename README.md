@@ -144,7 +144,7 @@
 - **项目主页**：[https://github.com/1zhujianbang/Synodic](https://github.com/1zhujianbang/Synodic)
 - **问题反馈**：[GitHub Issues](https://github.com/1zhujianbang/Synodic/issues)
 - **讨论社区**：[GitHub Discussions](https://github.com/1zhujianbang/Synodic/discussions)
-- **商业合作**：synodic@your-org.com
+- **商业合作**：cooperate@synodic-org.com
 
 ---
 
