@@ -166,6 +166,8 @@ const GraphTaxonomy = () => {
   const [isAutoPlay, setIsAutoPlay] = useState(true)
   const timerRef = useRef(null)
 
+  const contentRef = useRef(null)
+
   // Auto-play logic
   useEffect(() => {
     if (!isAutoPlay || !allTypes.length) return
@@ -185,6 +187,11 @@ const GraphTaxonomy = () => {
   const handleManualChange = (id) => {
     setActiveId(id)
     setIsAutoPlay(false)
+    
+    // On mobile, scroll content into view
+    if (window.innerWidth < 1024 && contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   if (!allTypes.length) return null
@@ -192,29 +199,32 @@ const GraphTaxonomy = () => {
   const activeType = allTypes.find(t => t.id === activeId) || allTypes[0]
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-12 px-4">
+    <div className="w-full max-w-6xl mx-auto py-4 lg:py-8 px-4">
       {/* Header removed (integrated into list) */}
       
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
         {/* Sidebar / Navigation */}
-        <div className="lg:w-1/3 flex flex-col gap-2 h-72 lg:h-[600px] overflow-y-auto pr-6 pl-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative">
-           {/* Axis Line */}
-           <div className="absolute left-[2.25rem] top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent pointer-events-none" />
+        <div className="lg:w-1/3 flex lg:flex-col flex-row gap-2 h-auto lg:h-[600px] overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto pr-0 lg:pr-6 pl-0 lg:pl-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative">
+           {/* Mobile Scroll Hint */}
+           <div className="lg:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/50 to-transparent pointer-events-none z-20 animate-pulse" />
+           
+           {/* Axis Line - Hidden on mobile */}
+           <div className="hidden lg:block absolute left-[2.25rem] top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent pointer-events-none" />
 
           {allTypes.map((type) => (
             <button
               key={type.id}
               onClick={() => handleManualChange(type.id)}
               className={clsx(
-                "group relative text-left p-4 rounded-xl transition-all duration-300 border ml-8",
+                "group relative text-left p-4 rounded-xl transition-all duration-300 border flex-shrink-0 w-64 lg:w-auto lg:ml-8",
                 activeId === type.id 
                   ? "bg-white/10 border-purple-500/50 shadow-[0_0_15px_rgba(147,51,234,0.2)] scale-[1.02]" 
                   : "bg-transparent border-transparent hover:bg-white/5 hover:border-white/10 opacity-60 hover:opacity-100"
               )}
             >
-              {/* Axis Node */}
+              {/* Axis Node - Hidden on mobile */}
               <div className={clsx(
-                "absolute -left-8 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 z-10",
+                "hidden lg:block absolute -left-8 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 z-10",
                 activeId === type.id
                   ? "bg-purple-500 border-purple-300 shadow-[0_0_10px_#a855f7]"
                   : "bg-gray-900 border-gray-700 group-hover:border-gray-500"
@@ -254,7 +264,7 @@ const GraphTaxonomy = () => {
         </div>
 
         {/* Content Panel */}
-        <div className="lg:w-2/3 relative min-h-[500px]">
+        <div ref={contentRef} className="lg:w-2/3 relative min-h-[500px]">
           <AnimatePresence mode="wait">
             <_motion.div
               key={activeId}
