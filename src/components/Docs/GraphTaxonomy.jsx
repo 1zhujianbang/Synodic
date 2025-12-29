@@ -199,7 +199,7 @@ const GraphTaxonomy = () => {
   const activeType = allTypes.find(t => t.id === activeId) || allTypes[0]
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-4 lg:py-8 px-4">
+    <div className="w-full max-w-6xl mx-auto py-4 lg:py-8 px-1">
       {/* Header removed (integrated into list) */}
       
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
