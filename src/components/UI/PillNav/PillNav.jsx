@@ -1,9 +1,12 @@
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
+import { NavLink } from 'react-router-dom'
+import { useI18n } from '../../../i18n.jsx'
 
 const PillNav = ({ items = [] }) => {
   const navRef = useRef(null)
   const pillRef = useRef(null)
+  const { locale, toggleLocale, t } = useI18n()
 
   useEffect(() => {
     // Initial animation
@@ -47,29 +50,57 @@ const PillNav = ({ items = [] }) => {
         />
 
         {/* Logo/Icon */}
-        <div className="pl-4 pr-2 font-bold text-white tracking-widest cursor-pointer hover:text-purple-400 transition-colors">
+        <NavLink
+          to="/"
+          className="pl-4 pr-2 font-bold text-white tracking-widest cursor-pointer hover:text-purple-400 transition-colors"
+          onMouseEnter={handleMouseEnter}
+        >
           SYNODIC
-        </div>
+        </NavLink>
 
         {/* Divider */}
         <div className="w-px h-6 bg-white/20 mx-2" />
 
         {/* Nav Items */}
         {items.map((item, index) => (
-          <a 
-            key={index}
-            href={item.href || '#'}
-            className="nav-item relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-full"
-            onMouseEnter={handleMouseEnter}
-          >
-            {item.label}
-          </a>
+          item.onClick ? (
+            <button
+              key={index}
+              type="button"
+              className="nav-item relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-full"
+              onMouseEnter={handleMouseEnter}
+              onClick={item.onClick}
+            >
+              {item.label}
+            </button>
+          ) : (
+            <NavLink
+              key={index}
+              to={item.to || '/'}
+              className="nav-item relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-full"
+              onMouseEnter={handleMouseEnter}
+            >
+              {item.label}
+            </NavLink>
+          )
         ))}
 
-        {/* CTA Button */}
-        <button className="ml-2 px-5 py-2 rounded-full bg-purple-600 text-white text-sm font-bold hover:bg-purple-500 transition-all shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_25px_rgba(147,51,234,0.8)]">
-          Launch App
+        <button
+          type="button"
+          onClick={toggleLocale}
+          className="ml-2 px-3 py-2 rounded-full bg-white/5 text-white/90 text-sm font-medium hover:bg-white/10 transition-colors"
+        >
+          {locale === 'zh' ? 'EN' : '中文'}
         </button>
+
+        {/* CTA Button */}
+        <NavLink
+          to="/"
+          className="ml-2 px-5 py-2 rounded-full bg-purple-600 text-white text-sm font-bold hover:bg-purple-500 transition-all shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_25px_rgba(147,51,234,0.8)]"
+          onMouseEnter={handleMouseEnter}
+        >
+          {t('cta.launch')}
+        </NavLink>
       </nav>
     </div>
   )

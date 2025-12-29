@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as _motion, AnimatePresence } from 'framer-motion'
 import clsx from 'clsx'
 
-const Stepper = ({ steps = [] }) => {
+const Stepper = ({ steps = [], previousLabel = 'Previous', nextLabel = 'Next' }) => {
   const [activeStep, setActiveStep] = useState(0)
 
   return (
@@ -11,7 +11,7 @@ const Stepper = ({ steps = [] }) => {
       <div className="flex justify-between items-center mb-12 relative">
         {/* Connecting Line */}
         <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-800 -z-10 -translate-y-1/2 rounded-full" />
-        <motion.div 
+        <_motion.div 
           className="absolute top-1/2 left-0 h-1 bg-purple-600 -z-10 -translate-y-1/2 rounded-full"
           initial={{ width: '0%' }}
           animate={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
@@ -24,7 +24,7 @@ const Stepper = ({ steps = [] }) => {
             className="flex flex-col items-center gap-2 cursor-pointer"
             onClick={() => setActiveStep(index)}
           >
-            <motion.div
+            <_motion.div
               className={clsx(
                 "w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors",
                 activeStep >= index 
@@ -35,7 +35,7 @@ const Stepper = ({ steps = [] }) => {
               whileTap={{ scale: 0.9 }}
             >
               {index + 1}
-            </motion.div>
+            </_motion.div>
             <span className={clsx(
               "text-xs font-medium uppercase tracking-wider transition-colors",
               activeStep >= index ? "text-purple-400" : "text-gray-600"
@@ -49,7 +49,7 @@ const Stepper = ({ steps = [] }) => {
       {/* Content Area */}
       <div className="relative min-h-[300px] bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-xl overflow-hidden">
         <AnimatePresence mode="wait">
-          <motion.div
+          <_motion.div
             key={activeStep}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -65,7 +65,7 @@ const Stepper = ({ steps = [] }) => {
             <p className="text-gray-300 leading-relaxed text-lg">
               {steps[activeStep].description}
             </p>
-          </motion.div>
+          </_motion.div>
         </AnimatePresence>
 
         {/* Navigation Buttons */}
@@ -75,14 +75,14 @@ const Stepper = ({ steps = [] }) => {
             disabled={activeStep === 0}
             className="px-6 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            Previous
+            {previousLabel}
           </button>
           <button 
             onClick={() => setActiveStep(Math.min(steps.length - 1, activeStep + 1))}
             disabled={activeStep === steps.length - 1}
             className="px-6 py-2 rounded-lg bg-white/10 text-white text-sm font-medium hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            Next
+            {nextLabel}
           </button>
         </div>
       </div>

@@ -1,15 +1,18 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom'
 import Silk from '../components/Backgrounds/Silk'
 import PillNav from '../components/UI/PillNav'
+import { useI18n } from '../i18n.jsx'
 
-const navItems = [
-  { label: 'Atlas', href: '#' },
-  { label: 'Insights', href: '#' },
-  { label: 'Docs', href: '#' },
-  { label: 'API', href: '#' },
-]
+const MainLayout = () => {
+  const { t } = useI18n()
 
-const MainLayout = ({ children }) => {
+  const navItems = [
+    { label: t('nav.atlas'), to: '/' },
+    { label: t('nav.insights'), to: '/insights' },
+    { label: t('nav.docs'), to: '/docs' },
+    { label: t('nav.api'), to: '/api' },
+  ]
+
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden font-sans">
       {/* Global Background */}
@@ -17,7 +20,7 @@ const MainLayout = ({ children }) => {
 
       {/* Main Content */}
       <main className="relative z-10 flex flex-col min-h-screen">
-        {children}
+        <Outlet />
       </main>
 
       {/* Floating Navigation */}

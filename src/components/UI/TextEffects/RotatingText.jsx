@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as _motion, AnimatePresence } from 'framer-motion'
 import clsx from 'clsx'
 
 const RotatingText = ({ 
@@ -19,7 +19,7 @@ const RotatingText = ({
   return (
     <div className={clsx("inline-flex h-[1.2em] overflow-hidden relative align-top", className)}>
       <AnimatePresence mode="wait">
-        <motion.span
+        <_motion.span
           key={index}
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
@@ -28,7 +28,7 @@ const RotatingText = ({
           className="absolute inset-0 flex items-center justify-center text-purple-400 font-bold"
         >
           {words[index]}
-        </motion.span>
+        </_motion.span>
       </AnimatePresence>
       {/* Invisible spacer to maintain width */}
       <span className="opacity-0 pointer-events-none">{words.reduce((a, b) => a.length > b.length ? a : b, "")}</span>
