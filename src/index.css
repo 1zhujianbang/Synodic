@@ -24,7 +24,7 @@ body {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.18) rgba(255, 255, 255, 0.04);
+  scrollbar-color: rgba(255, 255, 255, 0.14) rgba(255, 255, 255, 0.02);
 }
 
 html::-webkit-scrollbar {
@@ -33,23 +33,28 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 html::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
   border: 2px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 10px 22px rgba(0, 0, 0, 0.35);
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .synodic-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.18) rgba(255, 255, 255, 0.04);
+  scrollbar-color: rgba(255, 255, 255, 0.14) rgba(255, 255, 255, 0.02);
 }
 
 .synodic-scrollbar::-webkit-scrollbar {
@@ -58,17 +63,22 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .synodic-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 9999px;
 }
 
 .synodic-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
   border: 2px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 10px 22px rgba(0, 0, 0, 0.35);
 }
 
 .synodic-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.synodic-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.22);
 }
