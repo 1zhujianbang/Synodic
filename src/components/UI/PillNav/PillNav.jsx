@@ -37,10 +37,10 @@ const PillNav = ({ items = [] }) => {
   }
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 max-w-[90vw] overflow-x-auto rounded-full synodic-scrollbar-hide">
       <nav 
         ref={navRef}
-        className="relative flex items-center gap-2 p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl"
+        className="relative flex items-center gap-2 p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl min-w-max"
         onMouseLeave={handleMouseLeave}
       >
         {/* Floating Pill Background */}

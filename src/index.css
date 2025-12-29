@@ -98,3 +98,12 @@ html::-webkit-scrollbar-thumb:active {
 .synodic-scrollbar::-webkit-scrollbar-thumb:active {
   background: rgba(255, 255, 255, 0.22);
 }
+
+.synodic-scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.synodic-scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

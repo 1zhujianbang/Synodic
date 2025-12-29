@@ -197,7 +197,7 @@ const GraphTaxonomy = () => {
       
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar / Navigation */}
-        <div className="lg:w-1/3 flex flex-col gap-2 h-[600px] overflow-y-auto pr-6 pl-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative">
+        <div className="lg:w-1/3 flex flex-col gap-2 h-72 lg:h-[600px] overflow-y-auto pr-6 pl-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative">
            {/* Axis Line */}
            <div className="absolute left-[2.25rem] top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent pointer-events-none" />
 

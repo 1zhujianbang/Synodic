@@ -47,9 +47,9 @@ export default function Api() {
   return (
     <section className="min-h-screen pt-24 pb-12 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
       {/* Sidebar Navigation - 简化 */}
-      <aside className="md:w-64 flex-shrink-0">
-        <div className="space-y-8 pr-2">
-          <div>
+      <aside className="w-full md:w-64 flex-shrink-0 mb-8 md:mb-0 overflow-hidden">
+        <div className="flex md:block gap-8 md:gap-0 md:space-y-8 overflow-x-auto pb-2 md:pb-0 synodic-scrollbar-hide">
+          <div className="flex-shrink-0">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">{sidebar.intro}</h3>
             <ul className="space-y-2">
               <li>
@@ -70,7 +70,7 @@ export default function Api() {
               </li>
             </ul>
           </div>
-          <div>
+          <div className="flex-shrink-0">
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">{sidebar.endpoints}</h3>
             <ul className="space-y-2">
               <li>
