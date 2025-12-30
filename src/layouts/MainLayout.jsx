@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Silk from '../components/Backgrounds/Silk'
 import PillNav from '../components/UI/PillNav'
 import { useI18n } from '../i18n.jsx'
-
+ 
 const MainLayout = () => {
   const { t } = useI18n()
   const location = useLocation()
