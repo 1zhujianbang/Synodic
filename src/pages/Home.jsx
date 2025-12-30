@@ -621,8 +621,8 @@ const Home = () => {
   const slides = useMemo(() => {
     const picked = allSlides.slice(0, 8)
     const moreSlide = locale === 'zh'
-      ? { level: '更多', title: '更多场景', desc: '定制化所有领域' }
-      : { level: 'More', title: 'More Use Cases', desc: 'Expand with industry templates and workflows. Updates ongoing.' }
+      ? { level: '更多', title: '更多场景', desc: '定制化拓展至全领域，实现个性化需求与多场景应用。' }
+      : { level: 'More', title: 'More Use Cases', desc: 'Customization extends to all fields, enabling personalized solutions and multi-scenario applications.' }
 
     const merged = [...picked, moreSlide]
     const hues = [285, 250, 320, 210, 300, 260, 330, 235, 290]
