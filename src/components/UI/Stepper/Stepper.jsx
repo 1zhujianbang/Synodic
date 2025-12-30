@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from 'react'
 import { motion as _motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ShinyText } from '../TextEffects'
+import { useI18n } from '../../../i18n.jsx'
 
 const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
+  const { t } = useI18n()
   const [activeStep, setActiveStep] = useState(0)
   const [direction, setDirection] = useState(0)
   const contentRef = useRef(null)
@@ -104,7 +106,7 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
                     to="/insights"
                     className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-black font-bold text-lg transition-transform hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.3)]"
                   >
-                    <ShinyText text="进入洞察看板" className="text-black" style={{ color: '#F4C542' }} />
+                    <ShinyText text={t('cta.insightsDashboard')} className="text-black" style={{ color: '#F4C542' }} />
                     <span className="text-black/60">→</span>
                   </Link>
                 </_motion.div>
