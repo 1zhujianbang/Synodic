@@ -751,7 +751,7 @@ const Home = () => {
                       >
                         <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/10 to-transparent opacity-70" />
                         <div className="relative h-full w-full flex items-center justify-center px-1">
-                          <div className="text-[12px] md:text-[14px] font-semibold tracking-[0.22em] text-white/90 leading-none text-center whitespace-nowrap">
+                          <div className="text-[11px] sm:text-[12px] md:text-[14px] font-semibold tracking-[0.06em] md:tracking-[0.22em] text-white/90 leading-[1.08] text-center break-all md:break-normal md:whitespace-nowrap max-h-[2.2em] overflow-hidden">
                             {s.headerLabel}
                           </div>
                         </div>
