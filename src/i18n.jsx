@@ -37,6 +37,39 @@ const translations = {
           icon: '✨',
         },
       ],
+      useCases: {
+        title: '应用场景',
+        subtitle: '从微观监测到宏观决策的全域智能支持',
+        levels: [
+          {
+            level: '宏观 · Macro',
+            desc: '全球视野下的战略决策与态势感知',
+            items: [
+              { title: '全球地缘政治与经济局势推演', desc: '基于事件流与实体关系，实时监控并推演地缘冲突、贸易制裁对全球供应链与资本市场的连锁冲击。' },
+              { title: '国家级产业竞争情报', desc: '分析关键技术领域（如半导体、AI）的全球竞争格局，识别“卡脖子”风险点与潜在替代路径。' },
+              { title: '系统性金融风险预警', desc: '跨市场关联分析，提前识别大宗商品波动、汇率震荡或主权债务危机在实体经济中的传导路径。' }
+            ]
+          },
+          {
+            level: '中观 · Meso',
+            desc: '区域发展、行业洞察与社会治理',
+            items: [
+              { title: '区域经济与乡村振兴监测', desc: '动态追踪返贫风险因子，可视化产业链与就业岗位的关联，为精准扶贫与区域资源调配提供数据支撑。' },
+              { title: '舆情传播与社会情绪感知', desc: '追踪热点事件在社交网络中的传播路径与关键节点，量化社会情绪对特定行业或政策的实时反馈。' },
+              { title: '产业链韧性评估', desc: '识别区域产业链中的隐形冠军与断点，辅助政府进行招商引资与强链补链的精准决策。' }
+            ]
+          },
+          {
+            level: '微观 · Micro',
+            desc: '企业战略、合规风控与战术执行',
+            items: [
+              { title: '企业战略规划与竞对分析', desc: '通过知识图谱发现竞争对手的隐形投资版图与人才流动网络，辅助企业制定差异化竞争战略。' },
+              { title: '供应链穿透式审计', desc: '深入多层级供应链，识别上游供应商的合规风险（如ESG违规、制裁名单），保障业务连续性。' },
+              { title: '精准营销与客户画像', desc: '基于图算法挖掘潜在高价值客户的关联网络，提升获客效率与转化率。' }
+            ]
+          }
+        ]
+      },
     },
     common: { previous: '上一步', next: '下一步' },
     pages: {
@@ -248,6 +281,39 @@ const translations = {
           icon: '✨',
         },
       ],
+      useCases: {
+        title: 'Use Cases',
+        subtitle: 'Full-Spectrum Intelligence from Micro-Monitoring to Macro-Strategy',
+        levels: [
+          {
+            level: 'Macro',
+            desc: 'Strategic Decision-Making & Situational Awareness',
+            items: [
+              { title: 'Geopolitical & Economic Simulation', desc: 'Monitor and simulate the cascading impacts of geopolitical conflicts and sanctions on global supply chains and capital markets.' },
+              { title: 'National Industrial Competitiveness', desc: 'Analyze global competition in key tech sectors (e.g., Semi, AI) to identify choke points and alternative pathways.' },
+              { title: 'Systemic Financial Risk Warning', desc: 'Identify transmission paths of commodity volatility, currency shocks, or sovereign debt crises into the real economy.' }
+            ]
+          },
+          {
+            level: 'Meso',
+            desc: 'Regional Development, Industry Insights & Governance',
+            items: [
+              { title: 'Rural Revitalization Monitoring', desc: 'Track poverty return risks dynamically and visualize links between industrial chains and jobs for precise resource allocation.' },
+              { title: 'Public Opinion & Social Sentiment', desc: 'Trace the propagation of hot topics in social networks and quantify real-time social sentiment feedback on policies.' },
+              { title: 'Supply Chain Resilience Assessment', desc: 'Identify hidden champions and break points in regional chains to assist government investment and chain strengthening.' }
+            ]
+          },
+          {
+            level: 'Micro',
+            desc: 'Corporate Strategy, Compliance & Execution',
+            items: [
+              { title: 'Strategic Planning & Competitor Analysis', desc: 'Uncover competitors\' hidden investment maps and talent flow networks to formulate differentiated strategies.' },
+              { title: 'Deep Supply Chain Audit', desc: 'Penetrate multi-tier supply chains to identify upstream compliance risks (ESG, Sanctions) and ensure business continuity.' },
+              { title: 'Precision Marketing & Profiling', desc: 'Mine potential high-value customer networks using graph algorithms to improve acquisition efficiency and conversion.' }
+            ]
+          }
+        ]
+      },
     },
     common: { previous: 'Previous', next: 'Next' },
     pages: {
