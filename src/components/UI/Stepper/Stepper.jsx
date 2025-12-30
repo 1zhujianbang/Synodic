@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion as _motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { ShinyText } from '../TextEffects'
 
 const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
   const [activeStep, setActiveStep] = useState(0)
@@ -36,9 +37,9 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
     <div className="w-full max-w-4xl mx-auto">
       {/* Progress Bar */}
       <div className="relative flex justify-between items-center mb-12">
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-white/10 rounded-full -z-10" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-white/10 -z-10" />
         <div 
-          className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full -z-10 transition-all duration-500"
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-purple-500 to-blue-500 -z-10 transition-all duration-500"
           style={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
         />
         
@@ -49,13 +50,13 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
               setDirection(index > activeStep ? 1 : -1)
               setActiveStep(index)
             }}
-            className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+            className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border-2 transition-all duration-300 ${
               index <= activeStep
                 ? 'bg-black border-purple-500 text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.5)]'
                 : 'bg-black border-white/10 text-gray-500 hover:border-white/30'
             }`}
           >
-            <span className="text-lg md:text-xl">{step.icon}</span>
+            <span className="text-lg md:text-xl font-semibold">{index + 1}</span>
           </button>
         ))}
       </div>
@@ -87,7 +88,7 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
             className="absolute w-full"
             ref={contentRef}
           >
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 text-center backdrop-blur-sm">
+            <div className="bg-white/5 border border-white/10 p-8 md:p-12 text-center backdrop-blur-sm">
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">{steps[activeStep].title}</h3>
               <p className="text-gray-300 leading-relaxed text-lg mb-8 max-w-2xl mx-auto">
                 {steps[activeStep].description}
@@ -101,10 +102,10 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
                 >
                   <Link 
                     to="/insights"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-bold text-white hover:shadow-[0_0_20px_rgba(147,51,234,0.5)] transition-all hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-black font-bold text-lg transition-transform hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.3)]"
                   >
-                    <span>进入洞察看板</span>
-                    <span>→</span>
+                    <ShinyText text="进入洞察看板" className="text-black" style={{ color: '#F4C542' }} />
+                    <span className="text-black/60">→</span>
                   </Link>
                 </_motion.div>
               ) : (
@@ -120,7 +121,7 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
         <button
           onClick={handlePrev}
           disabled={activeStep === 0}
-          className={`px-6 py-2 rounded-lg border transition-colors ${
+          className={`px-6 py-2 border transition-colors ${
             activeStep === 0
               ? 'border-white/5 text-gray-600 cursor-not-allowed'
               : 'border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/30'
@@ -132,7 +133,7 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
         {!isLastStep && (
           <button
             onClick={handleNext}
-            className="px-6 py-2 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition-colors"
+            className="px-6 py-2 bg-white text-black font-bold hover:bg-gray-200 transition-colors"
           >
             {nextLabel}
           </button>

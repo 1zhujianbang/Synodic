@@ -45,27 +45,27 @@ const translations = {
             level: '宏观 · Macro',
             desc: '全球视野下的战略决策与态势感知',
             items: [
-              { title: '全球地缘政治与经济局势推演', desc: '基于事件流与实体关系，实时监控并推演地缘冲突、贸易制裁对全球供应链与资本市场的连锁冲击。' },
-              { title: '国家级产业竞争情报', desc: '分析关键技术领域（如半导体、AI）的全球竞争格局，识别“卡脖子”风险点与潜在替代路径。' },
-              { title: '系统性金融风险预警', desc: '跨市场关联分析，提前识别大宗商品波动、汇率震荡或主权债务危机在实体经济中的传导路径。' }
+              { title: '全球地缘政治与经济局势推演', desc: '事件流 + 关系图实时追踪冲突与制裁，量化供应链与资本市场的二阶冲击。' },
+              { title: '国家级产业竞争情报', desc: '识别关键技术链条的依赖与替代路径，定位“卡脖子”节点与潜在突破口。' },
+              { title: '系统性金融风险预警', desc: '跨市场联动建模，提前发现商品、汇率、主权风险向实体经济的传导链路。' }
             ]
           },
           {
             level: '中观 · Meso',
             desc: '区域发展、行业洞察与社会治理',
             items: [
-              { title: '区域经济与乡村振兴监测', desc: '动态追踪返贫风险因子，可视化产业链与就业岗位的关联，为精准扶贫与区域资源调配提供数据支撑。' },
-              { title: '舆情传播与社会情绪感知', desc: '追踪热点事件在社交网络中的传播路径与关键节点，量化社会情绪对特定行业或政策的实时反馈。' },
-              { title: '产业链韧性评估', desc: '识别区域产业链中的隐形冠军与断点，辅助政府进行招商引资与强链补链的精准决策。' }
+              { title: '区域经济与乡村振兴监测', desc: '跟踪返贫与就业风险因子，联动产业链与岗位结构，辅助资源精准投放。' },
+              { title: '舆情传播与社会情绪感知', desc: '追踪热点扩散路径与关键节点，实时度量情绪对行业与政策的反馈。' },
+              { title: '产业链韧性评估', desc: '定位隐形冠军与断点，评估强链补链优先级与脆弱环节。' }
             ]
           },
           {
             level: '微观 · Micro',
             desc: '企业战略、合规风控与战术执行',
             items: [
-              { title: '企业战略规划与竞对分析', desc: '通过知识图谱发现竞争对手的隐形投资版图与人才流动网络，辅助企业制定差异化竞争战略。' },
-              { title: '供应链穿透式审计', desc: '深入多层级供应链，识别上游供应商的合规风险（如ESG违规、制裁名单），保障业务连续性。' },
-              { title: '精准营销与客户画像', desc: '基于图算法挖掘潜在高价值客户的关联网络，提升获客效率与转化率。' }
+              { title: '企业战略规划与竞对分析', desc: '洞察竞对投资/合作版图与人才流动网络，支持差异化战略制定。' },
+              { title: '供应链穿透式审计', desc: '穿透多层供应链，识别 ESG / 制裁 / 合规风险，保障业务连续性。' },
+              { title: '精准营销与客户画像', desc: '在关系网络中发现高价值客群与关键触点，提高获客与转化效率。' }
             ]
           }
         ]
@@ -289,27 +289,27 @@ const translations = {
             level: 'Macro',
             desc: 'Strategic Decision-Making & Situational Awareness',
             items: [
-              { title: 'Geopolitical & Economic Simulation', desc: 'Monitor and simulate the cascading impacts of geopolitical conflicts and sanctions on global supply chains and capital markets.' },
-              { title: 'National Industrial Competitiveness', desc: 'Analyze global competition in key tech sectors (e.g., Semi, AI) to identify choke points and alternative pathways.' },
-              { title: 'Systemic Financial Risk Warning', desc: 'Identify transmission paths of commodity volatility, currency shocks, or sovereign debt crises into the real economy.' }
+              { title: 'Geopolitical & Economic Simulation', desc: 'Track conflicts and sanctions via event flows and relationships, quantifying second-order impacts across supply chains and capital markets.' },
+              { title: 'National Industrial Competitiveness', desc: 'Map dependencies and substitution paths in critical tech stacks to surface choke points and breakthrough opportunities.' },
+              { title: 'Systemic Financial Risk Warning', desc: 'Model cross-market linkages to detect how commodity, FX, and sovereign risks propagate into the real economy.' }
             ]
           },
           {
             level: 'Meso',
             desc: 'Regional Development, Industry Insights & Governance',
             items: [
-              { title: 'Rural Revitalization Monitoring', desc: 'Track poverty return risks dynamically and visualize links between industrial chains and jobs for precise resource allocation.' },
-              { title: 'Public Opinion & Social Sentiment', desc: 'Trace the propagation of hot topics in social networks and quantify real-time social sentiment feedback on policies.' },
-              { title: 'Supply Chain Resilience Assessment', desc: 'Identify hidden champions and break points in regional chains to assist government investment and chain strengthening.' }
+              { title: 'Rural Revitalization Monitoring', desc: 'Track poverty and employment risk factors, linking industry chains to job structure for targeted resource allocation.' },
+              { title: 'Public Opinion & Social Sentiment', desc: 'Trace diffusion paths and key nodes to measure sentiment feedback on industries and policies in real time.' },
+              { title: 'Supply Chain Resilience Assessment', desc: 'Locate hidden champions and break points to prioritize strengthening actions and reduce fragility.' }
             ]
           },
           {
             level: 'Micro',
             desc: 'Corporate Strategy, Compliance & Execution',
             items: [
-              { title: 'Strategic Planning & Competitor Analysis', desc: 'Uncover competitors\' hidden investment maps and talent flow networks to formulate differentiated strategies.' },
-              { title: 'Deep Supply Chain Audit', desc: 'Penetrate multi-tier supply chains to identify upstream compliance risks (ESG, Sanctions) and ensure business continuity.' },
-              { title: 'Precision Marketing & Profiling', desc: 'Mine potential high-value customer networks using graph algorithms to improve acquisition efficiency and conversion.' }
+              { title: 'Strategic Planning & Competitor Analysis', desc: 'Reveal competitor investment and partnership maps plus talent flows to support differentiated strategy design.' },
+              { title: 'Deep Supply Chain Audit', desc: 'Penetrate multi-tier supply chains to flag ESG, sanctions, and compliance risks to maintain continuity.' },
+              { title: 'Precision Marketing & Profiling', desc: 'Find high-value segments and key touchpoints in relationship networks to improve acquisition and conversion.' }
             ]
           }
         ]
@@ -531,4 +531,3 @@ export function useI18n() {
   if (!ctx) throw new Error('useI18n must be used within I18nProvider')
   return ctx
 }
-

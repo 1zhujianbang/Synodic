@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Silk from '../components/Backgrounds/Silk'
 import PillNav from '../components/UI/PillNav'
 import { useI18n } from '../i18n.jsx'
+import { ScrollContainerProvider } from '../scrollContainer.jsx'
  
 const MainLayout = () => {
   const { t } = useI18n()
@@ -99,11 +100,13 @@ const MainLayout = () => {
   return (
     <div className="relative h-screen text-white overflow-hidden font-sans">
       <Silk />
-      <div ref={scrollRef} className="relative z-10 flex flex-col h-screen overflow-y-auto overflow-x-hidden synodic-overlay-scroll">
-        <main className="flex flex-col min-h-screen">
-          <Outlet />
-        </main>
-      </div>
+      <ScrollContainerProvider value={scrollRef}>
+        <div ref={scrollRef} className="relative z-10 flex flex-col h-screen overflow-y-auto overflow-x-hidden synodic-overlay-scroll">
+          <main className="flex flex-col min-h-screen">
+            <Outlet />
+          </main>
+        </div>
+      </ScrollContainerProvider>
       {thumb.show && (
         <div className="fixed right-3 top-3 bottom-3 z-50 pointer-events-none">
           <div className="relative h-full w-2">
@@ -120,7 +123,7 @@ const MainLayout = () => {
           </div>
         </div>
       )}
-      <PillNav items={navItems} />
+      <PillNav key={location.pathname} items={navItems} />
     </div>
   )
 }

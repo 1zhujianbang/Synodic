@@ -19,6 +19,12 @@
   display: none;
 }
 
+.scroll-stack-root {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
 .scroll-stack-inner {
   padding: 10vh 1rem 50vh;
   min-height: 100vh;

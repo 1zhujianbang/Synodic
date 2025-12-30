@@ -19,6 +19,7 @@ const ScrollStack = ({
   rotationAmount = 0,
   blurAmount = 0,
   useWindowScroll = false,
+  scrollContainerRef,
   onStackComplete
 }) => {
   const scrollerRef = useRef(null);
@@ -49,26 +50,42 @@ const ScrollStack = ({
         containerHeight: window.innerHeight,
         scrollContainer: document.documentElement
       };
-    } else {
-      const scroller = scrollerRef.current;
+    }
+
+    const externalScroller = scrollContainerRef?.current;
+    if (externalScroller) {
       return {
-        scrollTop: scroller.scrollTop,
-        containerHeight: scroller.clientHeight,
-        scrollContainer: scroller
+        scrollTop: externalScroller.scrollTop,
+        containerHeight: externalScroller.clientHeight,
+        scrollContainer: externalScroller
       };
     }
-  }, [useWindowScroll]);
+
+    const scroller = scrollerRef.current;
+    return {
+      scrollTop: scroller.scrollTop,
+      containerHeight: scroller.clientHeight,
+      scrollContainer: scroller
+    };
+  }, [scrollContainerRef, useWindowScroll]);
 
   const getElementOffset = useCallback(
     element => {
       if (useWindowScroll) {
         const rect = element.getBoundingClientRect();
         return rect.top + window.scrollY;
-      } else {
-        return element.offsetTop;
       }
+
+      const externalScroller = scrollContainerRef?.current;
+      if (externalScroller) {
+        const containerRect = externalScroller.getBoundingClientRect();
+        const rect = element.getBoundingClientRect();
+        return rect.top - containerRect.top + externalScroller.scrollTop;
+      }
+
+      return element.offsetTop;
     },
-    [useWindowScroll]
+    [scrollContainerRef, useWindowScroll]
   );
 
   const updateCardTransforms = useCallback(() => {
@@ -169,7 +186,6 @@ const ScrollStack = ({
     baseScale,
     rotationAmount,
     blurAmount,
-    useWindowScroll,
     onStackComplete,
     calculateProgress,
     parsePercentage,
@@ -182,6 +198,7 @@ const ScrollStack = ({
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
+    if (scrollContainerRef) return;
     if (useWindowScroll) {
       const lenis = new Lenis({
         duration: 1.2,
@@ -238,7 +255,7 @@ const ScrollStack = ({
       lenisRef.current = lenis;
       return lenis;
     }
-  }, [handleScroll, useWindowScroll]);
+  }, [handleScroll, scrollContainerRef, useWindowScroll]);
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;
@@ -264,11 +281,19 @@ const ScrollStack = ({
       card.style.webkitPerspective = '1000px';
     });
 
-    setupLenis();
+    const externalScroller = scrollContainerRef?.current;
+    if (externalScroller) {
+      externalScroller.addEventListener('scroll', handleScroll, { passive: true });
+    } else {
+      setupLenis();
+    }
 
     updateCardTransforms();
 
     return () => {
+      if (externalScroller) {
+        externalScroller.removeEventListener('scroll', handleScroll);
+      }
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -290,14 +315,18 @@ const ScrollStack = ({
     scaleDuration,
     rotationAmount,
     blurAmount,
+    scrollContainerRef,
     useWindowScroll,
     onStackComplete,
+    handleScroll,
     setupLenis,
     updateCardTransforms
   ]);
 
+  const wrapperClassName = scrollContainerRef || useWindowScroll ? 'scroll-stack-root' : 'scroll-stack-scroller';
+
   return (
-    <div className={`scroll-stack-scroller ${className}`.trim()} ref={scrollerRef}>
+    <div className={`${wrapperClassName} ${className}`.trim()} ref={scrollerRef}>
       <div className="scroll-stack-inner">
         {children}
         {/* Spacer so the last pin can release cleanly */}
