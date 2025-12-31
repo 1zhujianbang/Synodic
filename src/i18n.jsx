@@ -4,7 +4,7 @@ const I18nContext = createContext(null)
 
 const translations = {
   zh: {
-    nav: { atlas: '图谱', insights: '洞察', docs: '文档', api: 'API' },
+    nav: { atlas: '图谱', useCases: '应用场景', insights: '洞察', docs: '文档', api: 'API' },
     cta: { explore: '探索图谱', launch: '进入应用', insightsDashboard: '进入洞察看板' },
     home: {
       badge: 'Synodic 宏观实体图谱 v1.0',
@@ -244,7 +244,7 @@ const translations = {
     },
   },
   en: {
-    nav: { atlas: 'Atlas', insights: 'Insights', docs: 'Docs', api: 'API' },
+    nav: { atlas: 'Atlas', useCases: 'Use Cases', insights: 'Insights', docs: 'Docs', api: 'API' },
     cta: { explore: 'Explore the Atlas', launch: 'Launch App', insightsDashboard: 'Open Insights Dashboard' },
     home: {
       badge: 'Synodic Macro Entity Atlas v1.0',

@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { RotatingText, ShinyText } from '../components/UI/TextEffects'
 import Stepper from '../components/UI/Stepper'
 import { useI18n } from '../i18n.jsx'
@@ -583,6 +584,29 @@ function buildUseCaseSvg({ hue, variant }) {
 
 const Home = () => {
   const { t, locale } = useI18n()
+  const location = useLocation()
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    if (params.get('section') !== 'use-cases') return
+
+    let raf1 = 0
+    let raf2 = 0
+    const scroll = () => {
+      const el = document.getElementById('use-cases-section')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
+    raf1 = window.requestAnimationFrame(() => {
+      raf2 = window.requestAnimationFrame(scroll)
+    })
+
+    return () => {
+      if (raf1) window.cancelAnimationFrame(raf1)
+      if (raf2) window.cancelAnimationFrame(raf2)
+    }
+  }, [location.search])
+
   const steps = useMemo(() => {
     const v = t('home.steps')
     return Array.isArray(v) ? v : []
@@ -721,7 +745,7 @@ const Home = () => {
         </section>
 
         {/* Use Cases Section */}
-        <section className="h-screen relative overflow-hidden">
+        <section id="use-cases-section" className="h-screen relative overflow-hidden">
           {/* Background Container */}
           <div className="absolute inset-0 w-full h-full -z-20 bg-[#080808]"></div>
           <div className="absolute inset-0 w-full h-full -z-10">
