@@ -5,6 +5,7 @@ import Docs from './pages/Docs'
 import Home from './pages/Home'
 import Insights from './pages/Insights'
 import NotFound from './pages/NotFound'
+import UseCases from './pages/UseCases'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="/atlas" element={<Home />} />
+          <Route path="/use-cases" element={<UseCases />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/api" element={<Api />} />

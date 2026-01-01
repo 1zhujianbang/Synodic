@@ -16,7 +16,7 @@ const MainLayout = () => {
 
   const navItems = useMemo(() => [
     { label: t('nav.atlas'), to: '/' },
-    { label: t('nav.useCases'), to: '/?section=use-cases' },
+    { label: t('nav.useCases'), to: '/use-cases' },
     { label: t('nav.insights'), to: '/insights' },
     { label: t('nav.docs'), to: '/docs' },
     { label: t('nav.api'), to: '/api' },
