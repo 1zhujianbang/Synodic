@@ -17,24 +17,34 @@ const translations = {
       rotating: ['连接', '风险', '机会'],
       steps: [
         {
-          title: '采集',
-          description: '聚合全球市场、新闻与公告等多源异构数据，进入统一数据湖。',
-          icon: '🌪️',
+          title: '异构数据摄取',
+          description:
+            '对接行情、公告、新闻等多模态数据源，构建原始数据湖 (Raw Data Lake)。',
+          icon: 'DATA',
         },
         {
-          title: '消歧',
-          description: '用 NLP 与图算法进行实体身份与关系映射，链接同名同体并消除歧义。',
-          icon: '🔗',
+          title: '结构化抽取',
+          description:
+            '基于 NER/RE 模型从非结构化文本中提取实体与事件，滤除噪声并标准化。',
+          icon: 'NER',
         },
         {
-          title: '分析',
-          description: '基于图神经网络推理，发现隐藏结构、群落与异常传播风险。',
-          icon: '🧠',
+          title: '实体消歧与对齐',
+          description:
+            '执行共指消解 (Coreference Resolution) 与实体对齐算法，构建唯一标识 (Canonical ID)。',
+          icon: 'ID',
         },
         {
-          title: '洞察',
-          description: '通过交互式看板与实时 API 告警，输出可执行的市场情报。',
-          icon: '✨',
+          title: '图计算与推理',
+          description:
+            '运行社群发现、中心度计算与风险传播算法，量化高维图谱特征。',
+          icon: 'GRAPH',
+        },
+        {
+          title: '主动推理与分发',
+          description:
+            '基于动态子图匹配实时监测异动，触发自动化推理与情报分发。',
+          icon: 'PUSH',
         },
       ],
       useCases: {
@@ -257,28 +267,34 @@ const translations = {
       rotating: ['Connections', 'Risks', 'Opportunities'],
       steps: [
         {
-          title: 'Ingestion',
+          title: 'Heterogeneous Ingestion',
           description:
-            'Aggregating multi-source heterogenous data from global markets, news feeds, and corporate filings into a unified data lake.',
-          icon: '🌪️',
+            'Ingest multi-modal streams (Tickers, Filings, News) into a Raw Data Lake.',
+          icon: 'DATA',
         },
         {
-          title: 'Resolution',
+          title: 'Structured Extraction',
           description:
-            'Entity Identity & Relation Mapping using advanced NLP and graph algorithms to resolve disambiguities and link entities.',
-          icon: '🔗',
+            'Extract entities/events via NER/RE models, filtering unstructured noise and normalizing data.',
+          icon: 'NER',
         },
         {
-          title: 'Analysis',
+          title: 'Entity Resolution',
           description:
-            'Graph Neural Network Inference to detect hidden patterns, community structures, and anomaly propagation risks.',
-          icon: '🧠',
+            'Perform coreference resolution and alignment to establish Canonical Entity IDs.',
+          icon: 'ID',
         },
         {
-          title: 'Insight',
+          title: 'Graph Computing',
           description:
-            'Delivering actionable Market Intelligence through interactive dashboards and real-time API alerts.',
-          icon: '✨',
+            'Execute community detection, centrality, and risk propagation algorithms on the graph.',
+          icon: 'GRAPH',
+        },
+        {
+          title: 'Active Inference',
+          description:
+            'Monitor subgraph anomalies via real-time matching to trigger automated delivery.',
+          icon: 'PUSH',
         },
       ],
       useCases: {
