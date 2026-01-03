@@ -14,6 +14,34 @@ const translations = {
         'Synodic 揭示企业实体之间不可见的“引力”，把原始数据转化为可导航的经济情报宇宙。',
       pipelineTitle: '数据管线',
       pipelineSubtitle: '从原始信号到高保真情报。',
+      coreValuesTitle: '核心价值',
+      coreValues: [
+        { title: '全域覆盖', desc: '整合多源异构信号，统一实体标识、属性与关系语义' },
+        { title: '动态映射', desc: '持续刻画关系强度与结构演化，捕捉新增连接与关键断裂' },
+        { title: '智能推理', desc: '在图谱上进行传播、因果与仿真推演，生成风险/机会线索与趋势判断' },
+        { title: '可解释输出', desc: '给出可回溯的证据链与影响路径，支撑复核与落地决策' }
+      ],
+      coreCapabilitiesTitle: '核心能力',
+      coreCapabilities: [
+        { title: '实体检索与画像', items: ['名称/别名/代码的模糊检索与实体对齐', '统一实体画像：基本信息、行业/地域/角色等多维标签', '关联回溯：沿事件链与关系链追溯历史上下文'] },
+        { title: '关系网络分析', items: ['关键节点识别：中心度、影响力与关键桥梁等指标', '结构与群体：社群发现、跨群连接与结构洞视角', '路径与传播：关键路径、影响链路与风险传播推演'] },
+        { title: '动态监测与洞察', items: ['关系强度变化与结构重排（新增/断裂/社区重组）', '异常路径与连锁效应检测，形成可解释的洞察条目', '事件驱动的更新与订阅分发（按策略触发）'] },
+        { title: '典型任务', items: ['供应链风险：单点故障识别与替代路径评估', '投资与资本网络：穿透关系识别资本流向与集群效应', '竞争与合作：竞合关系变化追踪与对手图谱对比', '政策与监管：情景推演与影响传导链路定位'] }
+      ],
+      dataSourcesTitle: '数据源支持',
+      dataSourcesSubtitle: '可根据业务范围与合规要求接入并扩展',
+      dataSources: [
+        { title: '结构化数据（例如）', items: ['上市公司财报与披露（A股、港股、美股等）', '工商注册、股权与关联方信息', '进出口与贸易统计', '专利与知识产权', '招投标与采购数据'] },
+        { title: '非结构化数据（例如）', items: ['新闻媒体与行业报告', '社交媒体与舆情文本', '政策文件与行业标准', '学术论文与研究文献'] },
+        { title: '实时数据流（例如）', items: ['股票/期货等交易数据', '大宗商品价格', '汇率与利率', '舆情指数与热度指标'] }
+      ],
+      architectureTitle: '系统架构',
+      architecture: [
+        { title: '应用层', name: 'Synodic', link: 'https://github.com/1zhujianbang/Synodic' },
+        { title: '推送层', name: 'MarketAutoguider', link: 'https://github.com/1zhujianbang/MarketAutoguider' },
+        { title: '分析层', name: 'MarketSpectrograph', link: 'https://github.com/1zhujianbang/MarketSpectrograph' },
+        { title: '预处理层', name: 'MarketLens / MarketCollimator', link: 'https://github.com/1zhujianbang/MarketLens' }
+      ],
       rotating: ['连接', '风险', '机会'],
       steps: [
         {
@@ -50,6 +78,13 @@ const translations = {
       useCases: {
         title: '应用场景',
         subtitle: '从微观监测到宏观决策的全域智能支持',
+        targetAudienceTitle: '适用对象',
+        targetAudience: [
+          { title: '金融机构', items: ['企业信贷风险评估', '投资组合关联性分析', '系统性风险监测'] },
+          { title: '政府部门', items: ['产业政策效果模拟', '区域经济关联分析', '重大事件影响评估'] },
+          { title: '企业战略', items: ['竞争对手动态监控', '供应链韧性优化', '潜在合作伙伴发现'] },
+          { title: '研究机构', items: ['经济网络理论研究', '产业演变规律分析', '复杂系统建模验证'] }
+        ],
         levels: [
           {
             level: '宏观 · Macro',
@@ -264,6 +299,34 @@ const translations = {
         'Synodic reveals the invisible gravitational pulls between corporate entities, transforming raw data into a navigable universe of economic intelligence.',
       pipelineTitle: 'The Data Pipeline',
       pipelineSubtitle: 'From raw signals to high-fidelity intelligence.',
+      coreValuesTitle: 'Core Values',
+      coreValues: [
+        { title: 'Full-Spectrum Coverage', desc: 'Integrate multi-modal signals, unifying entity identity, attributes, and relationship semantics.' },
+        { title: 'Dynamic Mapping', desc: 'Continuously profile relationship strength and structural evolution, capturing new connections and critical breaks.' },
+        { title: 'Intelligent Inference', desc: 'Perform propagation, causal, and simulation inference on the graph to generate risk/opportunity signals and trend judgments.' },
+        { title: 'Explainable Output', desc: 'Provide traceable chains of evidence and impact paths to support verification and decision implementation.' }
+      ],
+      coreCapabilitiesTitle: 'Core Capabilities',
+      coreCapabilities: [
+        { title: 'Entity Retrieval & Profiling', items: ['Fuzzy retrieval and entity alignment by name/alias/ticker', 'Unified entity profile: basic info, industry/region/role multi-dimensional tags', 'Context backtracking: trace historical context along event and relationship chains'] },
+        { title: 'Network Analysis', items: ['Key node identification: centrality, influence, and key bridge indicators', 'Structure & Community: community detection, cross-group connection, and structural hole perspectives', 'Path & Propagation: key path, impact link, and risk propagation simulation'] },
+        { title: 'Dynamic Monitoring & Insights', items: ['Relationship strength change and structural rearrangement (new/break/community regrouping)', 'Abnormal path and chain reaction detection, forming explainable insight items', 'Event-driven updates and subscription distribution (triggered by strategy)'] },
+        { title: 'Typical Tasks', items: ['Supply chain risk: single point of failure identification and alternative path assessment', 'Investment & Capital Network: penetrate relationships to identify capital flows and cluster effects', 'Competition & Cooperation: track co-opetition changes and competitor graph comparison', 'Policy & Regulation: scenario simulation and impact transmission link positioning'] }
+      ],
+      dataSourcesTitle: 'Data Sources',
+      dataSourcesSubtitle: 'Scalable integration based on business scope and compliance requirements',
+      dataSources: [
+        { title: 'Structured Data (e.g.)', items: ['Listed company financial reports & disclosures (A-share, HK, US, etc.)', 'Business registration, equity, and related party info', 'Import/export & trade statistics', 'Patents & Intellectual Property', 'Bidding & Procurement Data'] },
+        { title: 'Unstructured Data (e.g.)', items: ['News media & industry reports', 'Social media & sentiment text', 'Policy documents & industry standards', 'Academic papers & research literature'] },
+        { title: 'Real-time Streams (e.g.)', items: ['Stock/Futures trading data', 'Commodity prices', 'Exchange rates & interest rates', 'Sentiment indices & heat metrics'] }
+      ],
+      architectureTitle: 'System Architecture',
+      architecture: [
+        { title: 'Application Layer', name: 'Synodic', link: 'https://github.com/1zhujianbang/Synodic' },
+        { title: 'Push Layer', name: 'MarketAutoguider', link: 'https://github.com/1zhujianbang/MarketAutoguider' },
+        { title: 'Analysis Layer', name: 'MarketSpectrograph', link: 'https://github.com/1zhujianbang/MarketSpectrograph' },
+        { title: 'Preprocessing Layer', name: 'MarketLens / MarketCollimator', link: 'https://github.com/1zhujianbang/MarketLens' }
+      ],
       rotating: ['Connections', 'Risks', 'Opportunities'],
       steps: [
         {
@@ -300,6 +363,13 @@ const translations = {
       useCases: {
         title: 'Use Cases',
         subtitle: 'Full-Spectrum Intelligence from Micro-Monitoring to Macro-Strategy',
+        targetAudienceTitle: 'Target Audience',
+        targetAudience: [
+          { title: 'Financial Institutions', items: ['Corporate credit risk assessment', 'Portfolio correlation analysis', 'Systemic risk monitoring'] },
+          { title: 'Government', items: ['Industrial policy impact simulation', 'Regional economic analysis', 'Major event impact assessment'] },
+          { title: 'Corporate Strategy', items: ['Competitor dynamic monitoring', 'Supply chain resilience optimization', 'Potential partner discovery'] },
+          { title: 'Research Institutions', items: ['Economic network theory', 'Industry evolution analysis', 'Complex system modeling'] }
+        ],
         levels: [
           {
             level: 'Macro',

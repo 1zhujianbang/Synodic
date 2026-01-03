@@ -4,7 +4,7 @@ import Silk from '../components/Backgrounds/Silk'
 import PillNav from '../components/UI/PillNav'
 import { useI18n } from '../i18n.jsx'
 import { ScrollContainerProvider } from '../scrollContainer.jsx'
- 
+
 const MainLayout = () => {
   const { t } = useI18n()
   const location = useLocation()

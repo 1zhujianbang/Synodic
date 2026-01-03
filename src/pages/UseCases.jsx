@@ -7,6 +7,7 @@ export default function UseCases() {
   const { t, locale } = useI18n()
 
   const useCases = useMemo(() => t('home.useCases') || {}, [t])
+  const targetAudience = useMemo(() => useCases.targetAudience || [], [useCases])
   const ctaLabel = locale === 'zh' ? '查看场景' : 'View Use Cases'
 
   return (
@@ -47,6 +48,32 @@ export default function UseCases() {
 
       <div id="use-cases-showcase" />
       <UseCasesShowcase />
+
+      {/* Target Audience Section */}
+      <section className="min-h-screen flex items-center justify-center py-24 relative z-10 ">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+            <ShinyText text={useCases.targetAudienceTitle} />
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {targetAudience.map((group, idx) => (
+              <div key={idx} className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-[1.02] transition-all">
+                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-300 mb-6 group-hover:bg-purple-500/30 transition-colors">
+                  <span className="text-xl font-bold">{idx + 1}</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">{group.title}</h3>
+                <ul className="space-y-3">
+                  {group.items && group.items.map((item, i) => (
+                    <li key={i} className="text-sm text-gray-400 leading-relaxed border-l-2 border-white/10 pl-3 group-hover:border-purple-500/50 transition-colors">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

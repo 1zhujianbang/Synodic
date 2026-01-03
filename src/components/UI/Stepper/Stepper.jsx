@@ -30,14 +30,11 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
       setActiveStep(prev => prev - 1)
     }
   }
-  
-  // Check if current step is "Insight" (usually the last one or by id/title)
-  // Assuming the last step is Insight based on context
+
   const isLastStep = activeStep === steps.length - 1
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      {/* Progress Bar */}
       <div className="relative flex justify-between items-center mb-12">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-white/10 -z-10" />
         <div 
@@ -63,7 +60,6 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
         ))}
       </div>
 
-      {/* Content */}
       <div className="relative overflow-hidden min-h-[300px]" style={{ height }}>
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <_motion.div
@@ -118,7 +114,6 @@ const Stepper = ({ steps, previousLabel = 'Previous', nextLabel = 'Next' }) => {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Buttons */}
       <div className="flex justify-between mt-8">
         <button
           onClick={handlePrev}
