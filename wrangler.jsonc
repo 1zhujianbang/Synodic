@@ -1,11 +1,13 @@
 {
   "name": "synodics",
   "compatibility_date": "2026-01-16",
+  "main": "index.html",
   "vars": {
     "TOKEN": "b6kg9FMrrmBZnJX6rvLb7Rh77u3TKrWJXo0BIs6zGk9aBBzXlWDkXZEXefywyh1i"  // 确保这里有值
   },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "run_worker_first": true
   }
 }
