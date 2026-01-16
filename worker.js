@@ -38,9 +38,7 @@ export default {
       if (payload?.point === 'ping') {
         return Response.json(
           {
-            ok: true,
-            point: 'pong',
-            ts: new Date().toISOString(),
+            result: 'pong',
           },
           { headers: corsHeaders },
         )
