@@ -28,6 +28,41 @@
 - **分析层**：[MarketSpectrograph](https://github.com/1zhujianbang/MarketSpectrograph)
 - **预处理层**：[MarketLens](https://github.com/1zhujianbang/MarketLens) / [MarketCollimator](https://github.com/1zhujianbang/MarketCollimator)
 
+### 统一式知识图谱架构（Memory / Reasoning / Control）
+
+Synodic 将“可追溯记忆、可替换推理、可控行动”解耦为三层，并用统一的数据契约与工具接口连接，支持流式增量更新与可回放审计。
+
+#### 记忆层（Memory Layer）
+
+- **图谱存储**：实体/关系/事件的时态化版本视图（支持时间切片与回放）
+- **事件日志**：图变更与模型输出的追加写入（用于重算、审计、复现）
+- **证据库**：原文文档与段落定位，所有事实可回溯到证据
+- **向量索引**：实体/事件/文档 embedding 检索，支撑语义召回
+- **特征仓库**：在线/离线一致的预测特征与标签
+
+#### 推理层（Reasoning Layer）
+
+- **检索与子图抽取**：时间窗子图、k-hop 邻域、路径检索、证据聚合
+- **图分析**：社群发现、中心性、异常检测、影响路径与传播模拟
+- **时序预测**：事件预测、关系演化预测、time-to-event 与风险预警
+- **因果估计与反事实**：效应估计、干预模拟、“what-if”情景推演
+- **LLM 结构化推理**：基于证据与子图的 RAG，输出结构化结论与引用
+
+#### 控制层（Control Layer）
+
+- **Planner/Router**：任务分解与工具路由，轻模型优先、必要时升级推理
+- **Policy/Guardrails**：预算控制、合规约束、输出格式校验与风险分流
+- **Human-in-the-loop**：低置信与高风险结果进入审核与反馈闭环
+- **Eval Harness**：离线回归与在线监控，保证迭代不退化
+
+#### 接口与数据契约（可替换、可扩展的关键）
+
+- **核心对象（Schema）**：Entity / Event / Relation / Effect / Evidence（均带 time、confidence、evidence_refs、trace_id）
+- **Memory API**：GetTemporalSlice / GetSubgraph / SearchByVector / WriteGraphDelta
+- **Reasoning API**：PredictNextEvents / EstimateEffect / GenerateCounterfactual / ExplainWithEvidence
+- **Tool 协议**：所有工具统一声明输入/输出 JSON schema、失败码、成本信息（时延/费用/可用性）
+- **事件流（Message Bus）**：raw_docs → extracted_events → entity_resolution → graph_updates → predictions → alerts/audit → feedback
+
 ## 📊 核心能力
 
 ### 实体检索与画像
